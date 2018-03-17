@@ -23,8 +23,8 @@ class TrailheadService:
         _target_url = utils.get_target_url(self.user_id)
 
         # start Log
-        log = LogUtils.LogUtils()
-        log.debug('OPEN ' + _target_url + ' (' + self.user_name + ')')
+        logger = LogUtils.LogUtils()
+        logger.debug('OPEN ' + _target_url + ' (' + self.user_name + ')')
 
         # open Chrome
         driver = webdriver.Chrome(chrome_options=_options)
@@ -56,6 +56,6 @@ class TrailheadService:
         driver.quit()
 
         # end Log
-        log.debug('SUCCESS')
+        logger.debug('SUCCESS')
         return _trailhead_score
 

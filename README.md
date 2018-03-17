@@ -25,7 +25,8 @@ Taro Yamada,005XXXXXXXXXXXXXXX
 ```
 
 ## execute
-    python3 src/Main.py
+    sudo chmod +x ./scrapingTrailheadScores.sh
+    ./scrapingTrailheadScores.sh
 
 ## check result (result/trailhead_scores.tsv)
 
