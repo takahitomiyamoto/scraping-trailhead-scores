@@ -25,7 +25,7 @@ Taro Yamada,005XXXXXXXXXXXXXXX
 ```
 
 ## execute
-    python3 Main.py
+    python3 src/Main.py
 
 ## check result (result/trailhead_scores.tsv)
 
