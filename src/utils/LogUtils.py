@@ -4,12 +4,11 @@
 from datetime import datetime
 
 class LogUtils:
-    # get the trailhead score
+    # output the debug message
     def debug(self, text):
         msg = ''
         msg = msg + '['
         msg = msg + datetime.now().strftime('%Y/%m/%d %H:%M:%S')
         msg = msg + '] '
         msg = msg + text
-
         print(msg)
