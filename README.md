@@ -6,7 +6,7 @@ You can get the data of trailhead scores as tsv-style.
     git clone https://github.com/takahitomiyamoto/scraping-trailhead-scores.git
     cd scraping-trailhead-scores
 
-## prepare data/trailhead_users.csv
+## prepare data (data/trailhead_users.csv)
 
 ### Format:
 
@@ -15,7 +15,7 @@ You can get the data of trailhead scores as tsv-style.
 |User Name|User ID|
 
 - User Name : only used as a label
-- User ID : https://trailhead.salesforce.com/en/me/**UserID**
+- User ID : [https://trailhead.salesforce.com/en/me/<u>**User ID**</u>]()
 
 ### Example:
 
@@ -27,7 +27,7 @@ Taro Yamada,005XXXXXXXXXXXXXXX
 ## execute
     python3 Main.py
 
-## check result/trailhead_scores.tsv
+## check result (result/trailhead_scores.tsv)
 
 ### Format:
 
