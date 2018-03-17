@@ -1,0 +1,1 @@
+# scrapingTrailheadScores.log
