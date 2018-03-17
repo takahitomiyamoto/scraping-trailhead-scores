@@ -6,7 +6,6 @@ from services import TrailheadService
 
 class Main:
     # constants
-    UTF_8 = 'utf-8'
     CSV_FILE_NAME = 'data/trailhead_users.csv'
     TSV_FILE_NAME = 'result/trailhead_scores.tsv'
 
