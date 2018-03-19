@@ -39,6 +39,9 @@ class TrailheadService:
         # fetch the numbers of Trails Completed
         _numbers_of_trails = driver.find_element_by_xpath(utils.XPATH_TRAILS).text
 
+        # fetch the name of Trailblazer Ranks
+        _name_of_ranks = driver.find_element_by_xpath(utils.XPATH_RANKS).get_attribute('alt')
+
         # click the dropdown and select Superbadges
         driver.find_element_by_xpath(utils.XPATH_DROPDOWN).click()
         driver.find_element_by_xpath(utils.XPATH_DROPDOWN_SUPERBADGES).click()
@@ -48,7 +51,7 @@ class TrailheadService:
         _numbers_of_superbadges = utils.get_numbers_of_superbadges(_numbers_of_superbadges_text, _numbers_of_badges)
 
         # add the trailhead score
-        _trailhead_score = utils.get_trailhead_score(self.user_name, self.user_id, _numbers_of_badges, _numbers_of_points, _numbers_of_trails, _numbers_of_superbadges)
+        _trailhead_score = utils.get_trailhead_score(self.user_name, self.user_id, _numbers_of_badges, _numbers_of_points, _numbers_of_trails, _numbers_of_superbadges, _name_of_ranks)
         # trailhead_score_list.append(_trailhead_score)
 
         # close Chrome

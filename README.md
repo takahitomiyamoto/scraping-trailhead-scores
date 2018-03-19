@@ -39,6 +39,6 @@ Taro Yamada,005XXXXXXXXXXXXXXX
 ### Example:
 
 ```data/trailhead_scores.tsv
-@takahito0508	takahito0508	238	174,305	27	7
-Taro Yamada	005XXXXXXXXXXXXXXX	100	100,000	10	0
+@takahito0508	takahito0508	238	174,305	27	7	Ranger
+Taro Yamada	005XXXXXXXXXXXXXXX	100	100,000	10	0	Mountaineer
 ```
