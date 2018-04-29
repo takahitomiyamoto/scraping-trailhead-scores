@@ -1,7 +1,8 @@
-data/trailhead_users.csv
-result/trailhead_scores.tsv
-src/services/__pycache__
-src/utils/__pycache__
-logs/scrapingTrailheadScores.log
 .sfdx/
 .vscode/
+data/*.csv
+logs/*.log
+result/*.tsv
+result/screenshot/
+src/services/__pycache__
+src/utils/__pycache__

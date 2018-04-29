@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 src/Main.py > logs/scrapingTrailheadScores.log 2>&1
+python3 src/Main.py | tee logs/scrapingTrailheadScores.log
