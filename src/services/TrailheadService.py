@@ -18,22 +18,23 @@ class TrailheadService:
     def get_trailhead_score(self, user):
         # Chrome headless mode
         _options = Options()
-        _options.set_headless(True)
-        # _options.set_headless(False)
-        _options.add_argument("--kiosk")
+        # _options.set_headless(True)
+        _options.set_headless(False)
+        # _options.add_argument("--kiosk")
 
         # set URL
         utils = TrailheadUtils.TrailheadUtils()
         _target_url = utils.get_target_url(self.user_id)
 
         # start Log
-        logger = LogUtils.LogUtils()
-        logger.debug('OPEN ' + _target_url + ' (' + self.user_name + ')')
+        # logger = LogUtils.LogUtils()
+        # logger.debug('OPEN ' + _target_url + ' (' + self.user_name + ')')
 
         # open Chrome
         driver = webdriver.Chrome(chrome_options=_options)
         # driver.maximize_window()
         driver.get(_target_url)
+        driver.maximize_window()
 
         # fetch the numbers of Badges
         _numbers_of_badges = driver.find_element_by_xpath(utils.XPATH_BADGES).text
@@ -87,7 +88,7 @@ class TrailheadService:
         driver.quit()
 
         # end Log
-        logger.debug('SUCCESS')
+        # logger.debug('SUCCESS')
         return _trailhead_score
 
     def getScreenshot(self, driver, element, user_name):

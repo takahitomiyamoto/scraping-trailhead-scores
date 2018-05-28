@@ -32,6 +32,7 @@ class Main:
         for user_list_row in _user_list:
             service = TrailheadService.TrailheadService(user_list_row)
             _trailhead_score = service.get_trailhead_score(user_list_row)
+            logger.debug('***** ' + _trailhead_score)
             _trailhead_score_list.append(_trailhead_score)
 
         logger.debug('TSV Size: ' + str(len(_trailhead_score_list)))
