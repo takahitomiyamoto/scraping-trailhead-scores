@@ -32,9 +32,10 @@ class TrailheadService:
 
         # open Chrome
         driver = webdriver.Chrome(chrome_options=_options)
-        # driver.maximize_window()
+        driver.implicitly_wait(60)
         driver.get(_target_url)
         driver.maximize_window()
+        driver.refresh()
 
         # fetch the numbers of Badges
         _numbers_of_badges = driver.find_element_by_xpath(utils.XPATH_BADGES).text
