@@ -22,6 +22,9 @@ class TrailheadService:
         _options.set_headless(False)
         # _options.add_argument("--kiosk")
 
+        # maximized window
+        _options.add_argument("--start-maximized")
+
         # set URL
         utils = TrailheadUtils.TrailheadUtils()
         _target_url = utils.get_target_url(self.user_id)
@@ -34,8 +37,11 @@ class TrailheadService:
         driver = webdriver.Chrome(chrome_options=_options)
         driver.implicitly_wait(60)
         driver.get(_target_url)
-        driver.maximize_window()
-        driver.refresh()
+        # driver.refresh()
+        # driver.implicitly_wait(60)
+        # driver.maximize_window()
+        driver.implicitly_wait(60)
+        # driver.refresh()
 
         # fetch the numbers of Badges
         _numbers_of_badges = driver.find_element_by_xpath(utils.XPATH_BADGES).text
@@ -100,4 +106,3 @@ class TrailheadService:
         path_list = [os.getcwd(), 'result', 'screenshot', user_name + '.png']
         filename = os.path.join(*path_list)
         driver.save_screenshot(filename)
-
