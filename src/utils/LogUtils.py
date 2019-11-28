@@ -3,6 +3,7 @@
 
 from datetime import datetime
 
+
 class LogUtils:
     # output the debug message
     def debug(self, text):

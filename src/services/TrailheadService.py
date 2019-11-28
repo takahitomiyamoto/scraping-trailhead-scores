@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from utils import TrailheadUtils
 from utils import LogUtils
 
+
 class TrailheadService:
     # constructor
     def __init__(self, user):
@@ -18,9 +19,7 @@ class TrailheadService:
     def get_trailhead_score(self, user):
         # Chrome headless mode
         _options = Options()
-        # _options.set_headless(True)
         _options.set_headless(False)
-        # _options.add_argument("--kiosk")
 
         # maximized window
         _options.add_argument("--start-maximized")
@@ -44,24 +43,31 @@ class TrailheadService:
         # driver.refresh()
 
         # fetch the numbers of Badges
-        _numbers_of_badges = driver.find_element_by_xpath(utils.XPATH_BADGES).text
+        _numbers_of_badges = driver.find_element_by_xpath(
+            utils.XPATH_BADGES).text
 
         # fetch the numbers of Points
-        _numbers_of_points = driver.find_element_by_xpath(utils.XPATH_POINTS).text
+        _numbers_of_points = driver.find_element_by_xpath(
+            utils.XPATH_POINTS).text
 
         # fetch the numbers of Trails Completed
-        _numbers_of_trails = driver.find_element_by_xpath(utils.XPATH_TRAILS).text
+        _numbers_of_trails = driver.find_element_by_xpath(
+            utils.XPATH_TRAILS).text
 
         # fetch the name of Trailblazer Ranks
-        _name_of_ranks = driver.find_element_by_xpath(utils.XPATH_RANKS).get_attribute('alt')
+        _name_of_ranks = driver.find_element_by_xpath(
+            utils.XPATH_RANKS).get_attribute('alt')
 
         # click the dropdown and select Superbadges
-        driver.find_element_by_xpath(utils.XPATH_DROPDOWN).click()
-        driver.find_element_by_xpath(utils.XPATH_DROPDOWN_SUPERBADGES).click()
+        # driver.find_element_by_xpath(utils.XPATH_DROPDOWN).click()
+        # driver.find_element_by_xpath(utils.XPATH_DROPDOWN_SUPERBADGES).click()
 
         # fetch the numbers of Superbadges
-        _numbers_of_superbadges_text = driver.find_element_by_xpath(utils.XPATH_SUPERBADGES).text
-        _numbers_of_superbadges = utils.get_numbers_of_superbadges(_numbers_of_superbadges_text, _numbers_of_badges)
+        # _numbers_of_superbadges_text = driver.find_element_by_xpath(
+        #     utils.XPATH_SUPERBADGES).text
+        # _numbers_of_superbadges = utils.get_numbers_of_superbadges(
+        #     _numbers_of_superbadges_text, _numbers_of_badges)
+        _numbers_of_superbadges = 'zero'
 
         # fetch the Relationship to Salesforce
         # _name_of_relationship = driver.find_element_by_xpath(utils.XPATH_RELATIONSHIP).text
@@ -71,13 +77,13 @@ class TrailheadService:
 
         # add the trailhead score
         _params = {
-            'user_name' : self.user_name,
-            'user_id' : self.user_id,
-            'numbers_of_badges' : _numbers_of_badges,
-            'numbers_of_points' : _numbers_of_points,
-            'numbers_of_trails' : _numbers_of_trails,
-            'numbers_of_superbadges' : _numbers_of_superbadges,
-            'name_of_ranks' : _name_of_ranks
+            'user_name': self.user_name,
+            'user_id': self.user_id,
+            'numbers_of_badges': _numbers_of_badges,
+            'numbers_of_points': _numbers_of_points,
+            'numbers_of_trails': _numbers_of_trails,
+            'numbers_of_superbadges': _numbers_of_superbadges,
+            'name_of_ranks': _name_of_ranks
             # 'name_of_ranks' : _name_of_ranks,
             # 'name_of_relationship' : _name_of_relationship,
             # 'name_of_company' : _name_of_company
@@ -87,8 +93,8 @@ class TrailheadService:
         # trailhead_score_list.append(_trailhead_score)
 
         # take the screenshot
-        element = driver.find_element_by_xpath(utils.XPATH_ABOUT_ME)
-        TrailheadService.getScreenshot(self, driver, element, self.user_name)
+        # element = driver.find_element_by_xpath(utils.XPATH_ABOUT_ME)
+        # TrailheadService.getScreenshot(self, driver, element, self.user_name)
 
         # close Chrome
         driver.close()
@@ -99,7 +105,8 @@ class TrailheadService:
         return _trailhead_score
 
     def getScreenshot(self, driver, element, user_name):
-        driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+        driver.execute_script(
+            'window.scrollTo(0, document.body.scrollHeight);')
         action = ActionChains(driver)
         action.move_to_element(element)
         action.perform()
