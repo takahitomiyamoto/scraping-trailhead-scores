@@ -27,13 +27,14 @@ class TrailheadService:
         # set URL
         utils = TrailheadUtils.TrailheadUtils()
         _target_url = utils.get_target_url(self.user_id)
+        # print(_target_url)
 
         # start Log
         # logger = LogUtils.LogUtils()
         # logger.debug('OPEN ' + _target_url + ' (' + self.user_name + ')')
 
         # open Chrome
-        driver = webdriver.Chrome(chrome_options=_options)
+        driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options=_options)
         driver.implicitly_wait(60)
         driver.get(_target_url)
         # driver.refresh()
@@ -67,7 +68,17 @@ class TrailheadService:
         #     utils.XPATH_SUPERBADGES).text
         # _numbers_of_superbadges = utils.get_numbers_of_superbadges(
         #     _numbers_of_superbadges_text, _numbers_of_badges)
-        _numbers_of_superbadges = 'zero'
+        # _numbers_of_superbadges = 'zero'
+        # try:
+        #     element_superbadges = driver.find_element_by_xpath(utils.XPATH_SUPERBADGES)
+        # # if element_superbadges:
+        #     _numbers_of_superbadges_ = element_superbadges.text
+        # # else:
+        # #     _numbers_of_superbadges = '0'
+        # except:
+        #     _numbers_of_superbadges_ = '0'
+
+        _numbers_of_superbadges = utils.get_numbers_of_superbadges2(driver)
 
         # fetch the Relationship to Salesforce
         # _name_of_relationship = driver.find_element_by_xpath(utils.XPATH_RELATIONSHIP).text
